@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style_css">
+</head>
+
+<body>
+    <h1>Student Login</h1>
+    <!-- <h3 style="text-align: right;"><a href="/admin_login_html"> Admin Login</a></h3> -->
+    <div id="container">
+        <div id="login-div">
+            <span class="span-text"> ID no:</span> <input type="text" placeholder="type your ID" class="input"
+                id="input-id">
+            <br><br>
+            <span class="span-text"> Password: </span><input type="password" placeholder="password" class="input"
+                id="input-pass">
+            <input type="checkbox" onclick="myFunction()">Show
+            <br><br><br> <button id="login-button" class="btn btn-secondary">Login</button>
+            <h5 id="alert-login"></h5>
+        </div>
+    </div>
+    <div id="container2">
+        <div id="selection-part">
+            <h4>You have logged in!</h4><br>
+            <label for="semester" class="select-text">Select semester:</label> <br>
+
+            <button id="show1">Spring 2021</button>
+            <button id="show2">Summer 2021</button>
+
+
+        </div>
+        <!-- //spring -->
+        <div id="sub-cgpa1">
+            <h3 id="spring"></h3>
+            <div class="title-item">
+                <div class="title"> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                    <b>Course Title</b>
+                </div>
+                <div class="cgpa-title">
+                    <b>CGPA</b>
+                </div>
+            </div>
+            <ul id="ul">
+
+            </ul>
+        </div>
+        <!-- //summer -->
+        <div id="sub-cgpa2">
+            <h3 id="summer"></h3>
+            <div class="title-item">
+                <div class="title"> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                    <b>Course Title</b>
+                </div>
+                <div class="cgpa-title">
+                    <b>CGPA</b>
+                </div>
+            </div>
+            <ul id="ul2">
+
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function myFunction() {
+            var pw_ele = document.getElementById("input-pass");
+            if (pw_ele.type === "password") {
+                pw_ele.type = "text";
+            } else {
+                pw_ele.type = "password";
+            }
+        }
+        //alert msg tag taking
+        const alert_text = document.getElementById('alert-login');
+        //button click; event-handler =>
+        const login_btn = document.getElementById('login-button');
+        login_btn.addEventListener('click', () => {
+            // making image
+            var img1 = new Image;
+            img1.src = "https://i.ibb.co/9hQr9PT/Profile-Pic-cropped.jpg";
+            var img2 = new Image;
+            img2.src = "https://i.ibb.co/9hQr9PT/Profile-Pic-cropped.jpg";
+            var img3 = new Image;
+            img3.src = "https://i.ibb.co/vqwq0DR/unnamed-cropped.jpg";
+            var img4 = new Image;
+            img4.src = "https://i.ibb.co/sbtHZdt/male-std-cropped.jpg";
+            var img5 = new Image;
+            img5.src = "https://i.ibb.co/sbtHZdt/male-std-cropped.jpg";
+            var img6 = new Image;
+            img6.src = "https://i.ibb.co/vqwq0DR/unnamed-cropped.jpg";
+            var img7 = new Image;
+            img7.src = "https://i.ibb.co/9hQr9PT/Profile-Pic-cropped.jpg";
+            var img8 = new Image;
+            img8.src = "https://i.ibb.co/vqwq0DR/unnamed-cropped.jpg";
+            var img9 = new Image;
+            img9.src = "https://i.ibb.co/9hQr9PT/Profile-Pic-cropped.jpg";
+            var img10 = new Image;
+            img10.src = "https://i.ibb.co/vqwq0DR/unnamed-cropped.jpg";
+            //take input id and password
+            const input_id1 = document.getElementById('input-id').value;
+            const input_id2 = document.getElementById('input-pass').value;
+            // extract data
+            fetch("/studentsInfo")
+                .then(res => res.json())
+                .then(data => show_student_info(data))
+            const show_student_info = data => {
+                console.log(data)
+                let = [];
+                let subs = [];
+                let i = 0;
+                data.map(std => {
+                    const roll = std.roll;
+                    const password = std.password;
+                    const name = std.name;
+                    if (input_id1 == roll && input_id2 == password) {
+                        document.getElementById('container').style.display = 'none';
+                        document.getElementById('container2').style.display = 'block';
+                        document.getElementById('sub-cgpa1').style.display = 'none';
+                        document.getElementById('sub-cgpa2').style.display = 'none';
+
+                        alert_text.innerHTML = '';
+                        //matching std and get result by semester
+                        //take button handler:
+
+                        let ul = document.getElementById('ul');
+                        let ul2 = document.getElementById('ul2');
+
+
+                        fetch('/getAllResult')
+                            .then(res => res.json())
+                            .then(allResult => {
+                                console.log(allResult)
+                                allResult.map(doc => docShow(doc))
+                                function docShow(doc) {
+                                    console.log(doc)
+                                    const sem = doc.sem;
+                                    const std = doc.std;
+                                    console.log(sem, std)
+
+                                    let li = document.createElement('li');
+
+                                    document.getElementById('show1').addEventListener('click', () => {
+                                        //roll == std
+
+                                        const conditionsArray = [
+                                            sem == 'sem10',
+                                            roll == std
+                                        ]
+
+                                        console.log(conditionsArray)
+                                        //dui condition true hole tobei if er statement will work
+                                        if (conditionsArray.indexOf(false) === -1) {
+                                            console.log(sem, std)
+                                            //
+                                            //sem10 sub show
+
+                                            const sm = sem;
+                                            const sub = doc.subject;
+                                            const cgpa = doc.cgpa;
+                                            console.log(sm, sub, cgpa)
+                                            document.getElementById('sub-cgpa1').style.display = 'block';
+                                            document.getElementById('sub-cgpa2').style.display = 'none';
+
+
+                                            document.getElementById('spring').innerText = 'Spring 2021'
+
+                                            li.innerHTML = `
+                                                        <div class="res-item">
+                                                            <div class="sub">${sub}</div>
+                                                            <div class="cgpa">${cgpa}</div>
+                                                        </div>
+                                                        `
+                                            ul.appendChild(li);
+
+                                        }
+                                    })
+                                    li.innerHTML = ''
+
+                                    //
+                                    console.log('DIVIDER BTN SPRING AND SUMMER PART')
+                                    let li2 = document.createElement('li');
+                                    document.getElementById('show2').addEventListener('click', () => {
+
+                                        //roll == std
+
+                                        const conditionsArray2 = [
+                                            sem == 'sem11',
+                                            roll == std
+                                        ]
+                                        console.log(sem, std)
+                                        console.log(conditionsArray2)
+                                        //dui condition true hole tobei if er statement will work
+                                        if (conditionsArray2.indexOf(false) === -1) {
+                                            console.log(sem, std)
+                                            //sem11 sub show
+
+                                            const sm2 = sem;
+                                            const sub2 = doc.subject;
+                                            const cgpa2 = doc.cgpa;
+                                            console.log(sm2, sub2, cgpa2)
+                                            document.getElementById('sub-cgpa2').style.display = 'block';
+                                            document.getElementById('sub-cgpa1').style.display = 'none';
+                                            document.getElementById('summer').innerText = 'Summer 2021'
+
+
+                                            li2.innerHTML = `
+                                                        <div class="res-item2">
+                                                            <div class="sub2">${sub2}</div>
+                                                            <div class="cgpa2">${cgpa2}</div>
+                                                        </div>
+                                                        `
+                                            ul2.appendChild(li2);
+
+                                        }
+                                    })
+                                    //
+                                    li2.innerHTML = ''
+                                }
+
+                            })
+                        //match and show end
+
+                    }
+                    //if end
+                    //else
+                    else {
+                        console.log('did not matched the data')
+                        alert_text.innerHTML = '!sorry, id or password is wrong. <br>Try again.'
+                    }
+                })
+            }
+        })
+        alert_text.innerHTML = '';
+
+       //////
+       //get result
+       //////
+
+    </script>
+
+
+    <!-- <script src="/script_js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/teacherAll_add_css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="body2">
+        <h1 id="h1-2">Adding result for Batch '50</h1>
+        <!-- // Adding result -->
+        <div id="crud-container">
+            <form action="/addT1" method="post">
+                <div id="crud-select-sem">
+                    <label for="semester" class="select-text">Select semester:</label> <br>
+                    <div class="select">
+                        <select id="semester" name="sem">
+                            <option value="sem10" name="t1-sem10">Spring 2021</option>
+                            <option value="sem11" name="t1-sem11">Summer 2021</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div id="crud-select-sub-12-t1">
+                    <label for="subject12" class="select-text">Select course:</label> <br>
+                    <div class="select">
+                        <select id="subject12" name="subject">
+                            <option id="sub1" value="programming-language-java" name="sub1">Programming Language
+                                (Java)-Spring2021
+                            </option>
+                            <option id="sub2" value="programming-language-java-lab" name="sub2">Programming Language
+                                (Java)
+                                Lab-Summer2021
+                            </option>
+                        </select>
+                    </div>
+                    <br>
+                </div>
+                <div id="crud-select-std-t1">
+                    <label for="std" class="select-text">Select Student:</label> <br>
+                    <div class="select">
+                        <select id="std" name="std">
+                            <option id="std1" value="5001" name="5001">Fatema Akter-5001</option>
+                            <option id="std2" value="5002" name="5002">Rony Akter-5002</option>
+                            <option id="std3" value="5003" name="5003">Labonyo Akter-5003</option>
+                            <option id="std4" value="5004" name="5004">Arif Rahman-5004</option>
+                            <option id="std5" value="5005" name="5005">Rayhan Sarkar-5005</option>
+                            <option id="std6" value="5006" name="5006">Barsha Nitin-5006</option>
+                            <option id="std7" value="5007" name="std7">Safina Khan-5007</option>
+                            <option id="std8" value="5008" name="5008">Nazifa Akter-5008</option>
+                            <option id="std9" value="5009" name="5009">Rodela Akter-5009</option>
+                            <option id="std10" value="5010" name="5010">Tahera Khanom-5010</option>
+                        </select>
+                    </div>
+                    <br>
+                </div>
+                <div id="crud-cgpa-t1">
+                    <label for="cgpa-t1" class="select-text">Type CGPA:</label> <br>
+                    <input type="text" id="cgpa-t1" name="cgpa">
+                </div>
+                <div id="value">
+                    <input type="text" value="1" name="tNo">
+                    <input type="text" value='611432f1499369e51ee2b69f' name="tId">
+                </div>
+                <br>
+                <button id="next-to-add-btn1" class="btn btn-info">Add result</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="img-div">
+
+    </div>
+
+    <script>
+
+
+        //
+
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

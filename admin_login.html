@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="/admin_login_css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>Admin Login</h1>
+    <div id="ad-container">
+        <div id="ad-login-div">
+
+            <span class="span-text"> Email:</span> <input type="text" placeholder="type your email" class="input"
+                id="ad-input-email" name="email">
+            <br><br>
+            <span class="span-text"> Password: </span><input type="password" placeholder="password" class="input"
+                id="ad-input-pass" name="password">
+            <input type="checkbox" onclick="myFunction()">Show
+            <br><br><br> <button id="ad-login-button" class="btn btn-secondary">Login</button>
+
+            <h5 id="alert-login"></h5>
+        </div>
+        <!-- //logged in -->
+        <div id="logged-in-div">
+            <h4>You have logged in!</h4>
+            <button id="loggedin-btn" class="btn btn-sm btn-secondary my-4 text-white">Go to next</button>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+        function myFunction() {
+            var pw_ele = document.getElementById("ad-input-pass");
+            if (pw_ele.type === "password") {
+                pw_ele.type = "text";
+            } else {
+                pw_ele.type = "password";
+            }
+        }
+        //alert msg tag taking
+        const alert_text = document.getElementById('alert-login');
+        //button click; event-handler =>
+        const ad_login_btn = document.getElementById('ad-login-button');
+        ad_login_btn.addEventListener('click', () => {
+
+            //take input id and password
+            let ad_input_email = document.getElementById('ad-input-email').value;
+            let ad_input_pass = document.getElementById('ad-input-pass').value;
+
+            document.getElementById('ad-input-email').value = "";
+            document.getElementById('ad-input-pass').value = "";
+            let low_AIEmail = ad_input_email.toLowerCase();
+            let low_AIPass = ad_input_pass.toLowerCase();
+            console.log(ad_input_email, ad_input_pass)
+            //getting teachersInfo and input teachers info:
+            fetch('/teachersInfo')
+                .then(res => res.json())
+                .then(data => {
+                    console.log('teachersInfo', data)
+                    data.map(teacher => {
+                        console.log(teacher)
+                        const tech_name = teacher.name;
+                        const tech_pass = teacher.password;
+                        const tech_email = teacher.email;
+                        const id = teacher._id;
+                        const tEmail = tech_email.toLowerCase()
+                        const tPass = tech_pass.toLowerCase()
+
+                        // store data to localStorage +id
+                        let input = { email: low_AIEmail, password: low_AIPass, id: id };
+                        console.log(input);
+                        localStorage.setItem('input', JSON.stringify(input));
+                        //retrieving data
+                        let storedInput = localStorage.getItem('input');
+                        let storedInput_obj = JSON.parse(storedInput)
+                        console.log(storedInput_obj);
+                        let email = storedInput_obj.email;
+                        let pass = storedInput_obj.password;
+                        let ObjId = storedInput_obj.id;
+                        //if condition
+                        if (email == tEmail && pass == tPass) {
+                            console.log('matched both data')
+                            alert_text.innerHTML = '';
+                            document.getElementById('ad-login-div').style.display = 'none';
+                            document.getElementById('logged-in-div').style.display = 'block';
+                            //logged in-btn button event handler and directing to admin crud
+                            const loggedIn_btn = document.getElementById('loggedin-btn');
+                            loggedIn_btn.addEventListener('click', () => {
+                                console.log('go to next is clicked')
+                                if (ObjId == '611432f1499369e51ee2b69f') {
+                                    window.location.replace(`/teacher1_611432f1499369e51ee2b69f`);
+                                }
+                                else if (ObjId == '6114336c499369e51ee2b6a0') {
+                                    window.location.replace(`/teacher2_6114336c499369e51ee2b6a0`);
+                                }
+                                else if (ObjId == '611598ae684a8c8aad40cfad') {
+                                    window.location.replace(`/teacher3_611598ae684a8c8aad40cfad`);
+                                }
+                                else if (ObjId == '611598e3684a8c8aad40cfae') {
+                                    window.location.replace(`/teacher4_611598e3684a8c8aad40cfae`);
+                                }
+
+                            })
+                            //event handler logged in ended
+                        }
+                        //else
+                        else {
+                            console.log('did not matched the data')
+                            alert_text.innerHTML = '!sorry, email or password is wrong. <br>Try again.'
+
+                        }
+                    })
+                })
+        })
+        alert_text.innerHTML = '';
+
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

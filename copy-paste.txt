@@ -1,0 +1,596 @@
+
+        document.getElementById('img-div').appendChild(img1)
+        // fetch students Data
+        fetch('/studentsInfo')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                data.map(dt => {
+                    const name = dt.name;
+                    //  img src = "https://images.unsplash.com/photo-1503676382389-4809596d5290?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80" , 
+                    // "https://i.ibb.co/9hQr9PT/Profile-Pic-cropped.jpg" ,
+                    //  "https://i.ibb.co/vqwq0DR/unnamed-cropped.jpg" ,
+                    //   "https://i.ibb.co/sbtHZdt/male-std-cropped.jpg" ,
+                    //    "https://i.ibb.co/sbtHZdt/male-std-cropped.jpg" ,
+                    //     "https://i.ibb.co/vqwq0DR/unnamed-cropped.jpg" ,
+                    //      "https://i.ibb.co/9hQr9PT/Profile-Pic-cropped.jpg" ,
+                    //       "https://i.ibb.co/vqwq0DR/unnamed-cropped.jpg" ,
+                    //        "https://i.ibb.co/9hQr9PT/Profile-Pic-cropped.jpg" ,
+                    //         "https://i.ibb.co/vqwq0DR/unnamed-cropped.jpg"
+
+                })
+            })
+
+
+
+            fetch('/getAllResult')
+                            .then(res => res.json())
+                            .then(result => {
+                                console.log(result)
+                                result.map(el => matchDt(el))
+                                function matchDt(el) {
+                                    const sem = el.sem;
+                                    const std = el.std;
+                                    const subject = el.subject;
+                                    //
+                                    if(std == 'std1')
+                                    {
+                                        
+                                    }
+
+                                }
+                            })
+
+
+                          document.getElementById('sub-cgpa').style.display = 'block';
+                                            const subShow = document.getElementById('sub-show');
+                                            const cgpaShow = document.getElementById('cgpa-show');
+                                            if (index == length - 1) {
+                                                subjects_cgpa.map(e => {
+                                                    console.log('object: ', e)
+                                                    console.log(subs[0] != subs[i + 1])
+                                                    if (subs[0] != subs[i + 1]) {
+                                                        let li = document.createElement('li');
+                                                        li.innerHTML = `<span class="sub">${e.subject}</span>
+                                                        <span class="cgpa">${e.cgpa}</span>
+                                                        `
+                                                        ul.appendChild(li);
+                                                        if (i < subs.length) { i = i + 1; }
+                                                    }
+
+                                                })
+                                            }
+//////////////////////////////////////////////////////////////////
+
+                                        // else if (std == 'std2' && roll == 5002 && sem10 == sem) {
+                                        //     subjects_cgpa.push({ subject, cgpa });
+                                        //     console.log(subjects_cgpa)
+                                        //     //show
+                                        //     document.getElementById('sub-cgpa').style.display = 'block';
+                                        //     const subShow = document.getElementById('sub-show');
+                                        //     const cgpaShow = document.getElementById('cgpa-show');
+                                        //     if (index == length - 1) {
+                                        //         subjects_cgpa.map(e => {
+                                        //             console.log('object: ', e)
+                                        //             let li = document.createElement('li');
+                                        //             li.innerHTML = `<span class="sub">${e.subject}</span>
+                                        //             <span class="cgpa">${e.cgpa}</span>
+                                        //             `
+                                        //             ul.appendChild(li);
+                                        //         })
+                                        //     }
+                                        // }
+
+
+                                        // else if (std == 'std3' && roll == 5003 && sem10 == sem) {
+                                        //     subjects_cgpa.push({ subject, cgpa });
+                                        //     console.log(subjects_cgpa)
+                                        //     //show
+                                        //     document.getElementById('sub-cgpa').style.display = 'block';
+                                        //     const subShow = document.getElementById('sub-show');
+                                        //     const cgpaShow = document.getElementById('cgpa-show');
+                                        //     if (index == length - 1) {
+                                        //         subjects_cgpa.map(e => {
+                                        //             console.log('object: ', e)
+                                        //             let li = document.createElement('li');
+                                        //             li.innerHTML = `<span class="sub">${e.subject}</span>
+                                        //             <span class="cgpa">${e.cgpa}</span>
+                                        //             `
+                                        //             ul.appendChild(li);
+                                        //         })
+                                        //     }
+                                        // }
+
+
+                                        // else if (std == 'std4' && roll == 5004 && sem10 == sem) {
+                                        //     subjects_cgpa.push({ subject, cgpa });
+                                        //     console.log(subjects_cgpa)
+                                        //     //show
+                                        //     document.getElementById('sub-cgpa').style.display = 'block';
+                                        //     const subShow = document.getElementById('sub-show');
+                                        //     const cgpaShow = document.getElementById('cgpa-show');
+                                        //     if (index == length - 1) {
+                                        //         subjects_cgpa.map(e => {
+                                        //             console.log('object: ', e)
+                                        //             let li = document.createElement('li');
+                                        //             li.innerHTML = `<span class="sub">${e.subject}</span>
+                                        //             <span class="cgpa">${e.cgpa}</span>
+                                        //             `
+                                        //             ul.appendChild(li);
+                                        //         })
+                                        //     }
+                                        // }
+
+
+                                        // else if (std == 'std5' && roll == 5005 && sem10 == sem) {
+                                        //     subjects_cgpa.push({ subject, cgpa });
+                                        //     console.log(subjects_cgpa)
+                                        //     //show
+                                        //     document.getElementById('sub-cgpa').style.display = 'block';
+                                        //     const subShow = document.getElementById('sub-show');
+                                        //     const cgpaShow = document.getElementById('cgpa-show');
+                                        //     if (index == length - 1) {
+                                        //         subjects_cgpa.map(e => {
+                                        //             console.log('object: ', e)
+                                        //             let li = document.createElement('li');
+                                        //             li.innerHTML = `<span class="sub">${e.subject}</span>
+                                        //             <span class="cgpa">${e.cgpa}</span>
+                                        //             `
+                                        //             ul.appendChild(li);
+                                        //         })
+                                        //     }
+                                        // }
+
+
+                                        // else if (std == 'std6' && roll == 5006 && sem10 == sem) {
+                                        //     subjects_cgpa.push({ subject, cgpa });
+                                        //     console.log(subjects_cgpa)
+                                        //     //show
+                                        //     document.getElementById('sub-cgpa').style.display = 'block';
+                                        //     const subShow = document.getElementById('sub-show');
+                                        //     const cgpaShow = document.getElementById('cgpa-show');
+                                        //     if (index == length - 1) {
+                                        //         subjects_cgpa.map(e => {
+                                        //             console.log('object: ', e)
+                                        //             let li = document.createElement('li');
+                                        //             li.innerHTML = `<span class="sub">${e.subject}</span>
+                                        //             <span class="cgpa">${e.cgpa}</span>
+                                        //             `
+                                        //             ul.appendChild(li);
+                                        //         })
+                                        //     }
+                                        // }
+
+
+                                        // else if (std == 'std7' && roll == 5007 && sem10 == sem) {
+                                        //     subjects_cgpa.push({ subject, cgpa });
+                                        //     console.log(subjects_cgpa)
+                                        //     //show
+                                        //     document.getElementById('sub-cgpa').style.display = 'block';
+                                        //     const subShow = document.getElementById('sub-show');
+                                        //     const cgpaShow = document.getElementById('cgpa-show');
+                                        //     if (index == length - 1) {
+                                        //         subjects_cgpa.map(e => {
+                                        //             console.log('object: ', e)
+                                        //             let li = document.createElement('li');
+                                        //             li.innerHTML = `<span class="sub">${e.subject}</span>
+                                        //             <span class="cgpa">${e.cgpa}</span>
+                                        //             `
+                                        //             ul.appendChild(li);
+                                        //         })
+                                        //     }
+                                        // }
+
+
+                                        // else if (std == 'std8' && roll == 5008 && sem10 == sem) {
+                                        //     subjects_cgpa.push({ subject, cgpa });
+                                        //     console.log(subjects_cgpa)
+                                        //     //show
+                                        //     document.getElementById('sub-cgpa').style.display = 'block';
+                                        //     const subShow = document.getElementById('sub-show');
+                                        //     const cgpaShow = document.getElementById('cgpa-show');
+                                        //     if (index == length - 1) {
+                                        //         subjects_cgpa.map(e => {
+                                        //             console.log('object: ', e)
+                                        //             let li = document.createElement('li');
+                                        //             li.innerHTML = `<span class="sub">${e.subject}</span>
+                                        //             <span class="cgpa">${e.cgpa}</span>
+                                        //             `
+                                        //             ul.appendChild(li);
+                                        //         })
+                                        //     }
+                                        // }
+
+
+                                        // else if (std == 'std9' && roll == 5009 && sem10 == sem) {
+                                        //     subjects_cgpa.push({ subject, cgpa });
+                                        //     console.log(subjects_cgpa)
+                                        //     //show
+                                        //     document.getElementById('sub-cgpa').style.display = 'block';
+                                        //     const subShow = document.getElementById('sub-show');
+                                        //     const cgpaShow = document.getElementById('cgpa-show');
+                                        //     if (index == length - 1) {
+                                        //         subjects_cgpa.map(e => {
+                                        //             console.log('object: ', e)
+                                        //             let li = document.createElement('li');
+                                        //             li.innerHTML = `<span class="sub">${e.subject}</span>
+                                        //             <span class="cgpa">${e.cgpa}</span>
+                                        //             `
+                                        //             ul.appendChild(li);
+                                        //         })
+                                        //     }
+                                        // }
+
+
+                                        // else if (std == 'std10' && roll == 5010 && sem10 == sem) {
+                                        //     subjects_cgpa.push({ subject, cgpa });
+                                        //     console.log(subjects_cgpa)
+                                        //     //show
+                                        //     document.getElementById('sub-cgpa').style.display = 'block';
+                                        //     const subShow = document.getElementById('sub-show');
+                                        //     const cgpaShow = document.getElementById('cgpa-show');
+                                        //     if (index == length - 1) {
+                                        //         subjects_cgpa.map(e => {
+                                        //             console.log('object: ', e)
+                                        //             let li = document.createElement('li');
+                                        //             li.innerHTML = `<span class="sub">${e.subject}</span>
+                                        //             <span class="cgpa">${e.cgpa}</span>
+                                        //             `
+                                        //             ul.appendChild(li);
+                                        //         })
+                                        //     }
+                                        // }
+
+
+
+                                        // //
+                                        // //sem11 show result
+                                        // /////////
+
+                                        // else if (std == 'std1' && roll == 5001 && sem11 == sem) {
+                                        //     subjects_cgpa.push({ subject, cgpa });
+                                        //     console.log(subjects_cgpa)
+                                        //     //show
+                                        //     document.getElementById('sub-cgpa').style.display = 'block';
+                                        //     const subShow = document.getElementById('sub-show');
+                                        //     const cgpaShow = document.getElementById('cgpa-show');
+                                        //     if (index == length - 1) {
+                                        //         subjects_cgpa.map(e => {
+                                        //             console.log('object: ', e)
+                                        //             let li = document.createElement('li');
+                                        //             li.innerHTML = `<span class="sub">${e.subject}</span>
+                                        //             <span class="cgpa">${e.cgpa}</span>
+                                        //             `
+                                        //             ul.appendChild(li);
+                                        //         })
+                                        //     }
+                                        // }
+
+                                        // else if (std == 'std2' && roll == 5002 && sem11 == sem) {
+                                        //     subjects_cgpa.push({ subject, cgpa });
+                                        //     console.log(subjects_cgpa)
+                                        //     //show
+                                        //     document.getElementById('sub-cgpa').style.display = 'block';
+                                        //     const subShow = document.getElementById('sub-show');
+                                        //     const cgpaShow = document.getElementById('cgpa-show');
+                                        //     if (index == length - 1) {
+                                        //         subjects_cgpa.map(e => {
+                                        //             console.log('object: ', e)
+                                        //             let li = document.createElement('li');
+                                        //             li.innerHTML = `<span class="sub">${e.subject}</span>
+                                        //             <span class="cgpa">${e.cgpa}</span>
+                                        //             `
+                                        //             ul.appendChild(li);
+                                        //         })
+                                        //     }
+                                        // }
+
+
+                                        // else if (std == 'std3' && roll == 5003 && sem11 == sem) {
+                                        //     subjects_cgpa.push({ subject, cgpa });
+                                        //     console.log(subjects_cgpa)
+                                        //     //show
+                                        //     document.getElementById('sub-cgpa').style.display = 'block';
+                                        //     const subShow = document.getElementById('sub-show');
+                                        //     const cgpaShow = document.getElementById('cgpa-show');
+                                        //     if (index == length - 1) {
+                                        //         subjects_cgpa.map(e => {
+                                        //             console.log('object: ', e)
+                                        //             let li = document.createElement('li');
+                                        //             li.innerHTML = `<span class="sub">${e.subject}</span>
+                                        //             <span class="cgpa">${e.cgpa}</span>
+                                        //             `
+                                        //             ul.appendChild(li);
+                                        //         })
+                                        //     }
+                                        // }
+
+
+                                        // else if (std == 'std4' && roll == 5004 && sem11 == sem) {
+                                        //     subjects_cgpa.push({ subject, cgpa });
+                                        //     console.log(subjects_cgpa)
+                                        //     //show
+                                        //     document.getElementById('sub-cgpa').style.display = 'block';
+                                        //     const subShow = document.getElementById('sub-show');
+                                        //     const cgpaShow = document.getElementById('cgpa-show');
+                                        //     if (index == length - 1) {
+                                        //         subjects_cgpa.map(e => {
+                                        //             console.log('object: ', e)
+                                        //             let li = document.createElement('li');
+                                        //             li.innerHTML = `<span class="sub">${e.subject}</span>
+                                        //             <span class="cgpa">${e.cgpa}</span>
+                                        //             `
+                                        //             ul.appendChild(li);
+                                        //         })
+                                        //     }
+                                        // }
+
+
+                                        // else if (std == 'std5' && roll == 5005 && sem11 == sem) {
+                                        //     subjects_cgpa.push({ subject, cgpa });
+                                        //     console.log(subjects_cgpa)
+                                        //     //show
+                                        //     document.getElementById('sub-cgpa').style.display = 'block';
+                                        //     const subShow = document.getElementById('sub-show');
+                                        //     const cgpaShow = document.getElementById('cgpa-show');
+                                        //     if (index == length - 1) {
+                                        //         subjects_cgpa.map(e => {
+                                        //             console.log('object: ', e)
+                                        //             let li = document.createElement('li');
+                                        //             li.innerHTML = `<span class="sub">${e.subject}</span>
+                                        //             <span class="cgpa">${e.cgpa}</span>
+                                        //             `
+                                        //             ul.appendChild(li);
+                                        //         })
+                                        //     }
+                                        // }
+
+
+                                        // else if (std == 'std6' && roll == 5006 && sem11 == sem) {
+                                        //     subjects_cgpa.push({ subject, cgpa });
+                                        //     console.log(subjects_cgpa)
+                                        //     //show
+                                        //     document.getElementById('sub-cgpa').style.display = 'block';
+                                        //     const subShow = document.getElementById('sub-show');
+                                        //     const cgpaShow = document.getElementById('cgpa-show');
+                                        //     if (index == length - 1) {
+                                        //         subjects_cgpa.map(e => {
+                                        //             console.log('object: ', e)
+                                        //             let li = document.createElement('li');
+                                        //             li.innerHTML = `<span class="sub">${e.subject}</span>
+                                        //             <span class="cgpa">${e.cgpa}</span>
+                                        //             `
+                                        //             ul.appendChild(li);
+                                        //         })
+                                        //     }
+                                        // }
+
+
+                                        // else if (std == 'std7' && roll == 5007 && sem11 == sem) {
+                                        //     subjects_cgpa.push({ subject, cgpa });
+                                        //     console.log(subjects_cgpa)
+                                        //     //show
+                                        //     document.getElementById('sub-cgpa').style.display = 'block';
+                                        //     const subShow = document.getElementById('sub-show');
+                                        //     const cgpaShow = document.getElementById('cgpa-show');
+                                        //     if (index == length - 1) {
+                                        //         subjects_cgpa.map(e => {
+                                        //             console.log('object: ', e)
+                                        //             let li = document.createElement('li');
+                                        //             li.innerHTML = `<span class="sub">${e.subject}</span>
+                                        //             <span class="cgpa">${e.cgpa}</span>
+                                        //             `
+                                        //             ul.appendChild(li);
+                                        //         })
+                                        //     }
+                                        // }
+
+
+                                        // else if (std == 'std8' && roll == 5008 && sem11 == sem) {
+                                        //     subjects_cgpa.push({ subject, cgpa });
+                                        //     console.log(subjects_cgpa)
+                                        //     //show
+                                        //     document.getElementById('sub-cgpa').style.display = 'block';
+                                        //     const subShow = document.getElementById('sub-show');
+                                        //     const cgpaShow = document.getElementById('cgpa-show');
+                                        //     if (index == length - 1) {
+                                        //         subjects_cgpa.map(e => {
+                                        //             console.log('object: ', e)
+                                        //             let li = document.createElement('li');
+                                        //             li.innerHTML = `<span class="sub">${e.subject}</span>
+                                        //             <span class="cgpa">${e.cgpa}</span>
+                                        //             `
+                                        //             ul.appendChild(li);
+                                        //         })
+                                        //     }
+                                        // }
+
+
+                                        // else if (std == 'std9' && roll == 5009 && sem11 == sem) {
+                                        //     subjects_cgpa.push({ subject, cgpa });
+                                        //     console.log(subjects_cgpa)
+                                        //     //show
+                                        //     document.getElementById('sub-cgpa').style.display = 'block';
+                                        //     const subShow = document.getElementById('sub-show');
+                                        //     const cgpaShow = document.getElementById('cgpa-show');
+                                        //     if (index == length - 1) {
+                                        //         subjects_cgpa.map(e => {
+                                        //             console.log('object: ', e)
+                                        //             let li = document.createElement('li');
+                                        //             li.innerHTML = `<span class="sub">${e.subject}</span>
+                                        //             <span class="cgpa">${e.cgpa}</span>
+                                        //             `
+                                        //             ul.appendChild(li);
+                                        //         })
+                                        //     }
+                                        // }
+
+
+                                        // else if (std == 'std10' && roll == 5010 && sem11 == sem) {
+                                        //     subjects_cgpa.push({ subject, cgpa });
+                                        //     console.log(subjects_cgpa)
+                                        //     //show
+                                        //     document.getElementById('sub-cgpa').style.display = 'block';
+                                        //     const subShow = document.getElementById('sub-show');
+                                        //     const cgpaShow = document.getElementById('cgpa-show');
+                                        //     if (index == length - 1) {
+                                        //         subjects_cgpa.map(e => {
+                                        //             console.log('object: ', e)
+                                        //             let li = document.createElement('li');
+                                        //             li.innerHTML = `<span class="sub">${e.subject}</span>
+                                        //             <span class="cgpa">${e.cgpa}</span>
+                                        //             `
+                                        //             ul.appendChild(li);
+                                        //         })
+                                        //     }
+                                        // }
+                                        // ///////////////////////////////////////////////////////////////else if end
+
+//////////////////////
+fetch('/getAllResult')
+                                .then(res => res.json())
+                                .then(result => {
+                                    console.log(result)
+                                    const length = result.length;
+                                    result.map(el => matchDt(el))
+                                    function matchDt(el) {
+                                        console.log(el)
+                                        const sem = el.sem;
+                                        const std = el.std;
+                                        let subject = el.subject;
+                                        const cgpa = el.cgpa;
+                                        const index = result.indexOf(el)
+                                        console.log(index)
+                                        ///////////////////////////////////
+                                        //
+                                        //sem10 show result
+                                        //
+
+                                        if (std == 'std1' && semTen == 'sem10') {
+
+                                            if (subject == 'programming-language-java' || subject == 'data-structure' || subject == 'computer-graphics' || subject == 'structural-programming-language') {
+                                                const s = subject;
+                                                console.log(s)
+
+                                                let a = { s, cgpa }
+                                                subjects_cgpa.push(a);
+                                                subs.push(s);
+                                                console.log(subjects_cgpa)
+                                                console.log(subs[0], subs[1], subs[2], subs[3], subs[4])
+                                                //show
+                                                document.getElementById('sub-cgpa').style.display = 'block';
+                                                if (index == length - 1) {
+                                                    subjects_cgpa.map(e => {
+                                                        console.log('object: ', e)
+                                                        console.log(subs[0] != subs[i + 1])
+                                                        if (subs[0] != subs[i + 1]) {
+                                                            let li = document.createElement('li');
+                                                            li.innerHTML = `<span class="sub">${subjects_cgpa[i].subject}</span>
+                                                        <span class="cgpa">${subjects_cgpa[i].cgpa}</span>
+                                                        `
+                                                            ul.appendChild(li);
+                                                            if (i < subs.length) { i = i + 1; }
+                                                        }
+
+                                                    })
+                                                }
+                                                //
+                                            }
+
+
+                                        }
+
+
+                                    }
+                                })
+
+//////////////////////////////////////////////////////////
+                                if (sem == 'sem10') {
+                                            if (roll == std) {
+                                                console.log('hello, ', semTen)
+                                                const sm = sem;
+                                                const sub = doc.subject;
+                                                const cgpa = doc.cgpa;
+                                                console.log(sm, sub, cgpa)
+                                                document.getElementById('sub-cgpa').style.display = 'block';
+
+                                                let li = document.createElement('li');
+                                                li.innerHTML = `<div class="res-item">
+                                                        <div class="sub">${sub}</div>
+                                                        <div class="cgpa">${cgpa}</div>
+                                                        </div>
+                                                        `
+                                                ul.appendChild(li);
+                                            }
+                                        }
+                                        //
+                                        else if (sem == semEl) {
+                                            if (roll == std) {
+                                                console.log('hello,', semEl, sem)
+                                                const sm2 = sem;
+                                                const sub2 = doc.subject;
+                                                const cgpa2 = doc.cgpa;
+                                                console.log(sm2, sub2, cgpa2)
+                                                document.getElementById('sub-cgpa').style.display = 'block';
+
+                                                let li2 = document.createElement('li');
+                                                li2.innerHTML = `<div class="res-item">
+                                                        <div class="sub">${sub2}</div>
+                                                        <div class="cgpa">${cgpa2}</div>
+                                                        </div>
+                                                        `
+                                                ul.appendChild(li2);
+                                            }
+                                        }
+
+                                        .....................................
+                                        document.getElementById('show2').addEventListener('click', () => {
+                            const semTen = document.getElementById('semTen').value;
+                            const semEl = document.getElementById('semEl').value;
+                            console.log(semTen, semEl)
+
+                            fetch('/getAllResult')
+                                .then(res => res.json())
+                                .then(allResult => {
+                                    console.log(allResult)
+                                    allResult.map(doc => docShow(doc))
+                                    function docShow(doc) {
+                                        console.log(doc)
+                                        const sem = doc.sem;
+                                        const std = doc.std;
+                                        console.log(sem, std)
+                                        //roll == std
+                                        if (roll == std) {
+                                            const conditionsArray = [
+                                                sem == semTen
+
+                                            ]
+
+                                            console.log(conditionsArray)
+                                            //dui condition true hole tobei if er statement will work
+                                            if (conditionsArray.indexOf(false) === -1) {
+                                                console.log("nothing")
+                                                //
+                                                //sem11 sub show
+                                                console.log('no, ', semEl)
+                                                const sm = sem;
+                                                const sub = doc.subject;
+                                                const cgpa = doc.cgpa;
+                                                console.log(sm, sub, cgpa)
+                                                document.getElementById('sub-cgpa').style.display = 'block';
+
+                                                let li = document.createElement('li');
+                                                li.innerHTML = `<div class="res-item">
+                                                        <div class="sub">${sub}</div>
+                                                        <div class="cgpa">${cgpa}</div>
+                                                        </div>
+                                                        `
+                                                ul.appendChild(li);
+                                            }
+                                        }
+                                        //
+                                    }
+
+                                })
+                            //match and show end
+                        })
